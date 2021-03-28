@@ -21,8 +21,6 @@ public class Principal {
 		System.out.println("                             1-Recital \n                             2-Teatro \n                             3-Infantil \n                             4-Deportes\n");
 		System.out.println("Ingrese el Tipo de Evento a crear su entrada:");
 		
-		codigoTipoEvento = input.nextInt();
-		
 		if(codigoTipoEvento > 4) {
 			System.out.println("El codigo ingreso no es valido!");
 			return;
@@ -38,15 +36,15 @@ public class Principal {
 			int tipoEntrada;
 			
 			System.out.println("Ingrese Nombre del Evento:");
-			nombreEvento = input.next();
+			nombreEvento = input.nextLine();
 			System.out.println("Dia:");
-			dia = input.nextInt();
+			dia = Integer.parseInt(input.nextLine());
 			System.out.println("Mes:");
-			mes = input.nextInt();
+			mes = Integer.parseInt(input.nextLine());
 			System.out.println("Año:");
-			anio = input.nextInt();
+			anio = Integer.parseInt(input.nextLine());
 			System.out.println("Duracion Aprox (Minutos):");
-			minutosDuracion = input.nextInt();
+			minutosDuracion = Integer.parseInt(input.nextLine());
 			
 			TipoEvento tipoEvento = new TipoEvento(codigoTipoEvento);
 			
@@ -59,21 +57,21 @@ public class Principal {
 				obj.setDuracionEvento(minutosDuracion);
 				
 				System.out.println("Tipo entrada (1-VIP 2-General):");
-				tipoEntrada = input.nextInt();
+				tipoEntrada = Integer.parseInt(input.nextLine());
 				obj.SetearPrecioEntrada(tipoEntrada);
 				
 				System.out.println("Ingrese Nombre Banda:");
-				obj.setBanda(input.next());
+				obj.setBanda(input.nextLine());
 				
 				System.out.println("Genero (1-Rock 2-Heavy Metal 3-Reggaeton 4-Trap 5-Latinos 6-Pop):");
-				Genero gen = new Genero(input.nextInt(), codigoTipoEvento);
+				Genero gen = new Genero(Integer.parseInt(input.nextLine()), codigoTipoEvento);
 				obj.setGenero(gen);
 				
 				System.out.println("Ingrese 1ra Banda Soporte (Si no tiene ingrese '-'): ");
-				obj.setPrimeraBandaSoporte(input.next());
+				obj.setPrimeraBandaSoporte(input.nextLine());
 				
 				System.out.println("Ingrese 2ra Banda Soporte (Si no tiene ingrese '-'): ");
-				obj.setSegundaBandaSoporte(input.next());
+				obj.setSegundaBandaSoporte(input.nextLine());
 				
 				listEntradas.add(obj);
 			}
@@ -87,23 +85,23 @@ public class Principal {
 				entradaTeatro.SetearPrecioEntrada(0);
 				
 				System.out.println("Genero (1-Drama 2-Teatro 3-Comedia):");
-				Genero gen = new Genero(input.nextInt(), codigoTipoEvento);
+				Genero gen = new Genero(Integer.parseInt(input.nextLine()), codigoTipoEvento);
 				entradaTeatro.setGenero(gen);
 				
 				System.out.println("Ingrese 1° Actor principal: ");
-				entradaTeatro.setActorPrincipal1(input.next());
+				entradaTeatro.setActorPrincipal1(input.nextLine());
 				
 				System.out.println("Ingrese 2° Actor principal (Si no tiene ingrese '-'): ");
-				entradaTeatro.setActorPrincipal2(input.next());
+				entradaTeatro.setActorPrincipal2(input.nextLine());
 				
 				System.out.println("Ingrese 3° Actor principal (Si no tiene ingrese '-'): ");
-				entradaTeatro.setActorPrincipal3(input.next());
+				entradaTeatro.setActorPrincipal3(input.nextLine());
 				
 				listEntradas.add(entradaTeatro);
 			}
 			System.out.println("~~~~~~~~~~~~~~~~~~~~~~ Nuevo Ingreso ~~~~~~~~~~~~~~~~~~~~~~");
 			System.out.println("Ingrese el Tipo de Evento a crear su entrada:");
-			codigoTipoEvento = input.nextInt();
+			codigoTipoEvento = Integer.parseInt(input.nextLine());
 			
 			
 		}
