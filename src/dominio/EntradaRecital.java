@@ -1,5 +1,7 @@
 package dominio;
 
+import java.util.Scanner;
+
 public class EntradaRecital extends Entrada {
 	
 	
@@ -23,7 +25,7 @@ public class EntradaRecital extends Entrada {
 		
 	}
 
-	public EntradaRecital(String nombreEvento, Evento tipoEvento, String fechaHoraEvento,
+	public EntradaRecital(String nombreEvento, TipoEvento tipoEvento, String fechaHoraEvento,
 			int duracionEvento, String banda, Genero gen, String primeraBandaSoporte, String segundaBandaSoporte) {
 		
 		super(nombreEvento, tipoEvento, fechaHoraEvento, duracionEvento);
@@ -85,6 +87,8 @@ public class EntradaRecital extends Entrada {
 			setPrecio(PrecioGral);
 		}
 	}
+	
+	
 	
 	
 }
