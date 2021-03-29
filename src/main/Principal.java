@@ -20,6 +20,7 @@ public class Principal {
 		System.out.println("--------- Bienvenido al Sistema de Registro de Entradas del GRUPO 7 ---------\n");
 		System.out.println("                             1-Recital \n                             2-Teatro \n                             3-Infantil \n                             4-Deportes\n");
 		System.out.println("Ingrese el Tipo de Evento a crear su entrada:");
+		codigoTipoEvento = Integer.parseInt(input.nextLine());
 		
 		if(codigoTipoEvento > 4) {
 			System.out.println("El codigo ingreso no es valido!");
