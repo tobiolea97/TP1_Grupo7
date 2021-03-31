@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import dominio.Entrada;
+import dominio.EntradaInfantil;
 import dominio.EntradaRecital;
 import dominio.EntradaTeatro;
 import dominio.Genero;
@@ -99,6 +100,11 @@ public class Principal {
 				entradaTeatro.setActorPrincipal3(input.nextLine());
 				
 				listEntradas.add(entradaTeatro);
+			}
+			else if(codigoTipoEvento == 3) {
+				EntradaInfantil entradaInfantil = new EntradaInfantil();
+				
+				
 			}
 			System.out.println("~~~~~~~~~~~~~~~~~~~~~~ Nuevo Ingreso ~~~~~~~~~~~~~~~~~~~~~~");
 			System.out.println("Ingrese el Tipo de Evento a crear su entrada:");
