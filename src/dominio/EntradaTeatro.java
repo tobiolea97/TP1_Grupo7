@@ -54,6 +54,7 @@ public class EntradaTeatro extends Entrada {
 	
 	@Override
 	public String toString() {
+		// Desarrollado por Tobi
 		return super.toString() + ", Genero:" + Genero.getNombreGenero() + ", Actor principal 1:" + ActorPrincipal1
 				+ ", Actor principal 2:" + ActorPrincipal2 + ", Actor principal 3:" + ActorPrincipal3;
 	}
