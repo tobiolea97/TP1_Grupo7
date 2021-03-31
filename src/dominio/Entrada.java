@@ -69,7 +69,7 @@ public abstract class  Entrada {
 	@Override
 	public String toString() {
 
-		return "NroEntrada:" + NroEntrada + ", NombreEvento:" + NombreEvento + ", TipoEvento:" + objTipoEvento.getCodigoTipoEvento()
+		return "NroEntrada:" + NroEntrada + ", NombreEvento:" + NombreEvento + ", TipoEvento:" + objTipoEvento.getDescripcion()
 				+ ", FechaHoraEvento:" + FechaHoraEvento + ", DuracionEvento:" + DuracionEvento + "mins , Precio:" + String.format("%.2f", Precio);
 	}
 
