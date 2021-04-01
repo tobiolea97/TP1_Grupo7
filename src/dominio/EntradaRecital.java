@@ -1,6 +1,9 @@
 package dominio;
 
+import java.util.ArrayList;
 import java.util.Scanner;
+
+import interfaces.ListarDatos;
 
 public class EntradaRecital extends Entrada {
 	
@@ -76,8 +79,8 @@ public class EntradaRecital extends Entrada {
 
 	@Override
 	public String toString() {
-		return super.toString() + " Banda:" + Banda + ", Genero:" + genero.getNombreGenero() + ", PrimeraBandaSoporte:" + PrimeraBandaSoporte
-				+ ", SegundaBandaSoporte:" + SegundaBandaSoporte;
+		return super.toString() + " Banda:" + Banda + "\n Genero:" + genero.getNombreGenero() + "\n PrimeraBandaSoporte:" + PrimeraBandaSoporte
+				+ "\n SegundaBandaSoporte:" + SegundaBandaSoporte;
 	}
 
 	public void SetearPrecioEntrada(int tipoEntrada) {
@@ -89,8 +92,6 @@ public class EntradaRecital extends Entrada {
 			setPrecio(PrecioGral);
 		}
 	}
-	
-	
-	
+
 	
 }

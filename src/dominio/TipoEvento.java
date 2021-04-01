@@ -1,6 +1,10 @@
 package dominio;
 
-public class TipoEvento {
+import java.util.ArrayList;
+
+import interfaces.ListarDatos;
+
+public class TipoEvento implements ListarDatos{
 	private int CodigoTipoEvento;
 	private String Descripcion;
 	
@@ -58,5 +62,17 @@ public class TipoEvento {
 		@Override
 		public String toString() {
 			return "CodigoTipoEvento=" + CodigoTipoEvento + ", Descripcion=" + Descripcion;
+		}
+		
+		@Override
+		public void listarReferencias(ArrayList<Entrada> listaEntradas) {
+			System.out.println("Entradas a eventos del tipo " + Descripcion);
+			for(Entrada obj : listaEntradas) {
+				if(obj.getTipoEvento().getCodigoTipoEvento() == CodigoTipoEvento) {
+					System.out.println("************************************************");
+					System.out.println(obj.toString());
+					System.out.println("\n");
+				}
+			}
 		}
 }
