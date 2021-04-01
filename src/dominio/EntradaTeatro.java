@@ -2,7 +2,6 @@ package dominio;
 
 public class EntradaTeatro extends Entrada {
 	
-	private static int ContEntradas;
 	private final static String CodigoEntrada = "T-";
 	private final double PrecioGral = 1350.50;
 	
@@ -14,8 +13,10 @@ public class EntradaTeatro extends Entrada {
 	//CONSTRUCTORES
 	public EntradaTeatro() {
 		super();
-		ContEntradas++;
-		String nroEntrada = CodigoEntrada + ContEntradas;
+		
+		int numEntrada = getContEntradas() +1;
+		setContEntradas(numEntrada);
+		String nroEntrada = CodigoEntrada + numEntrada;
 		setNroEntrada(nroEntrada);
 		
 	}
@@ -47,7 +48,7 @@ public class EntradaTeatro extends Entrada {
 	}
 	
 	public static String ObtenerProxNumeroEntrada() {
-		String nroEntrada = CodigoEntrada + (ContEntradas+1);
+		String nroEntrada = CodigoEntrada + (getContEntradas()+1);
 		
 		return nroEntrada;
 	}
