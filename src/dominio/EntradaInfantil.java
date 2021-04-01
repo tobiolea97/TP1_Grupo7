@@ -1,8 +1,7 @@
 package dominio;
 
-public class EntradaInfantil extends Entrada {
+public class EntradaInfantil extends Entrada{
 	
-	private static int ContEntradas;
 	private final static String CodigoEntrada = "I-";
 	private final double PrecioMenores8 = 250;
 	private final double PrecioMayores8 = 500;
@@ -12,8 +11,10 @@ public class EntradaInfantil extends Entrada {
 	//CONSTRUCTORES
 	public EntradaInfantil() {
 		super();
-		ContEntradas++;
-		String nroEntrada = CodigoEntrada + ContEntradas;
+		
+		int numEntrada  = getContEntradas() +1;
+		setContEntradas(numEntrada);
+		String nroEntrada = CodigoEntrada + numEntrada;
 		setNroEntrada(nroEntrada);
 	}
 
@@ -21,8 +22,9 @@ public class EntradaInfantil extends Entrada {
 		super(nombreEvento, tipoEvento, fechaHoraEvento, duracionEvento);
 		
 		TieneSouvenir = tieneSouvenir;
-		ContEntradas++;
-		String nroEntrada = CodigoEntrada + ContEntradas;
+		int numEntrada  = getContEntradas() +1;
+		setContEntradas(numEntrada);
+		String nroEntrada = CodigoEntrada + numEntrada;
 		setNroEntrada(nroEntrada);
 	}
 	
@@ -41,5 +43,6 @@ public class EntradaInfantil extends Entrada {
 	public String toString() {
 		return super.toString()+ " TieneSouvenir=" + TieneSouvenir;
 	}
+
 
 }
