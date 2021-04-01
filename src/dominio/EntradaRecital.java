@@ -5,7 +5,6 @@ import java.util.Scanner;
 public class EntradaRecital extends Entrada {
 	
 	
-	private static int ContEntradas;
 	private final static String CodigoEntrada = "R-";
 	private final double PrecioVIP = 1500;
 	private final double PrecioGral = 800;
@@ -19,8 +18,10 @@ public class EntradaRecital extends Entrada {
 	
 	public EntradaRecital(){
 		super();
-		ContEntradas++;
-		String nroEntrada = CodigoEntrada + ContEntradas;
+		
+		int numEntrada = getContEntradas()+1;
+		setContEntradas(numEntrada);
+		String nroEntrada = CodigoEntrada + numEntrada;
 		setNroEntrada(nroEntrada);
 		
 	}
@@ -30,8 +31,9 @@ public class EntradaRecital extends Entrada {
 		
 		super(nombreEvento, tipoEvento, fechaHoraEvento, duracionEvento);
 		
-		ContEntradas = ContEntradas + 1;		 
-		String nroEntrada = CodigoEntrada + ContEntradas;
+		int numEntrada = getContEntradas()+1;
+		setContEntradas(numEntrada);
+		String nroEntrada = CodigoEntrada + numEntrada;
 		setNroEntrada(nroEntrada);
 		
 		Banda = banda;
@@ -67,7 +69,7 @@ public class EntradaRecital extends Entrada {
 	}
 	
 	public static String ObtenerProxNumeroEntrada() {
-		String nroEntrada = CodigoEntrada + (ContEntradas+1);
+		String nroEntrada = "9"; //CodigoEntrada + (ContEntradas+1);
 		
 		return nroEntrada;
 	}

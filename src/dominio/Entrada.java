@@ -5,6 +5,10 @@ import java.util.Scanner;
 
 
 public abstract class  Entrada {
+	
+	
+	private static int ContEntradas;
+
 	private String NroEntrada;
 	private String NombreEvento;
 	private TipoEvento objTipoEvento;
@@ -29,6 +33,13 @@ public abstract class  Entrada {
 	}
 
 	//GETTERS AND SETTERS
+	public static int getContEntradas() {
+		return ContEntradas;
+	}
+
+	public static void setContEntradas(int contEntradas) {
+		ContEntradas = contEntradas;
+	}
 	public String getNroEntrada() {
 		return NroEntrada;
 	}
