@@ -1,5 +1,9 @@
 package dominio;
 
+import java.util.ArrayList;
+
+import interfaces.ListarDatos;
+
 public class EntradaTeatro extends Entrada {
 	
 	private final static String CodigoEntrada = "T-";
@@ -55,9 +59,8 @@ public class EntradaTeatro extends Entrada {
 	
 	@Override
 	public String toString() {
-		// Desarrollado por Tobi
-		return super.toString() + ", Genero:" + Genero.getNombreGenero() + ", Actor principal 1:" + ActorPrincipal1
-				+ ", Actor principal 2:" + ActorPrincipal2 + ", Actor principal 3:" + ActorPrincipal3;
+		return super.toString() + "\n Genero:" + Genero.getNombreGenero() + "\n Actor principal 1:" + ActorPrincipal1
+				+ "\n Actor principal 2:" + ActorPrincipal2 + "\n Actor principal 3:" + ActorPrincipal3;
 	}
 	
 	@Override

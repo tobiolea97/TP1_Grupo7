@@ -1,6 +1,10 @@
 package dominio;
 
-public class Genero {
+import java.util.ArrayList;
+
+import interfaces.ListarDatos;
+
+public class Genero implements ListarDatos {
 	private int CodigoGenero;
 	private int CodigoTipoEvento = 0;
 	private String NombreGenero;
@@ -114,6 +118,36 @@ public class Genero {
 	
 	public String getNombreGenero() {
 		return NombreGenero;
+	}
+	@Override
+	public void listarReferencias(ArrayList<Entrada> listaEntradas) {
+		TipoEvento tipoEvento = new TipoEvento(CodigoTipoEvento);
+		System.out.println("Entradas a eventos del tipo " + tipoEvento.getDescripcion() + "/Genero " + NombreGenero);
+		for(Entrada obj : listaEntradas) {
+			if(obj instanceof EntradaTeatro)
+			{
+				EntradaTeatro entradaTeatro = (EntradaTeatro)obj;
+				if(entradaTeatro.getTipoEvento().getCodigoTipoEvento() == CodigoTipoEvento &&
+						entradaTeatro.getGenero().getCodigoGenero() == CodigoGenero)
+				{
+					System.out.println("************************************************");
+					System.out.println(obj.toString());
+					System.out.println("\n");
+				}
+			}
+			if(obj instanceof EntradaRecital)
+			{
+				EntradaRecital entradaRecital = (EntradaRecital)obj;
+				if(entradaRecital.getTipoEvento().getCodigoTipoEvento() == CodigoTipoEvento &&
+						entradaRecital.getGenero().getCodigoGenero() == CodigoGenero)
+				{
+					System.out.println("************************************************");
+					System.out.println(obj.toString());
+					System.out.println("\n");
+				}
+			}
+		}
+		
 	}
 
 	
