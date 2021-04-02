@@ -3,9 +3,10 @@ package dominio;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import interfaces.IEntradaNeg;
 import interfaces.ListarDatos;
 
-public class EntradaRecital extends Entrada {
+public class EntradaRecital extends Entrada implements IEntradaNeg {
 	
 	
 	private final static String CodigoEntrada = "R-";
@@ -91,6 +92,62 @@ public class EntradaRecital extends Entrada {
 		else {
 			setPrecio(PrecioGral);
 		}
+	}
+
+	@Override
+	public void MostrarCantidadEntrasVendidas(ArrayList<Entrada> lista) {
+		int cantEntradasRock = 0;
+		int cantEntradasHM = 0;
+		int cantEntradasReggaeton = 0;
+		int cantEntradasTrap = 0;
+		int cantEntradasLat = 0;
+		int cantEntradasPop = 0;
+
+		for(Entrada obj : lista) {
+			
+			EntradaRecital objRecital = (EntradaRecital) obj;
+			if(obj.getNroEntrada().contains(EntradaRecital.CodigoEntrada)) {
+				
+			
+				switch (objRecital.getGenero().getCodigoEvento()) {
+				
+					case 1:
+						cantEntradasRock++;
+						break;
+					case 2:
+						cantEntradasHM++;
+						break;
+					case 3:
+						cantEntradasReggaeton++;
+						break;
+					case 4:
+						cantEntradasTrap++;
+						break;
+					case 5:
+						cantEntradasLat++;
+						break;
+					case 6:
+						cantEntradasPop++;
+						break;
+							
+				}								
+
+			}
+			
+			int totalEntradas = cantEntradasRock + cantEntradasHM + cantEntradasReggaeton + cantEntradasTrap + cantEntradasLat + cantEntradasPop;
+			
+			System.out.println("\n\n");
+			System.out.println("La cantidad de entradas Vendidas por genero de recital son:\n");
+			System.out.println("Rock: " + cantEntradasRock + "\n");
+			System.out.println("Rock: " + cantEntradasHM + "\n");
+			System.out.println("Rock: " + cantEntradasReggaeton + "\n");
+			System.out.println("Rock: " + cantEntradasTrap + "\n");
+			System.out.println("Rock: " + cantEntradasLat + "\n");
+			System.out.println("Rock: " + cantEntradasPop + "\n");
+			System.out.println("Total Entradas: " + totalEntradas);
+		}
+		
+		
 	}
 
 	
