@@ -32,14 +32,65 @@ public class Principal {
 		objReci.setTipoEvento(tipoEvento);
 		objReci.setDuracionEvento(120);
 		objReci.SetearPrecioEntrada(1);
-				
 		listaEntradas.add(objReci);
-	
-		//--------------------------------------------------
 		
+		
+		// ENTRADAS TEATRO
+		EntradaTeatro entradaTeatro = new EntradaTeatro();
+		Genero genero2 = new Genero(1,2);
+		TipoEvento tipoEvento2 = new TipoEvento(2);
+		
+		entradaTeatro.setNombreEvento("Los arboles mueren de pie");
+		entradaTeatro.setTipoEvento(tipoEvento2);
+		entradaTeatro.setFechaHoraEvento("12/05/2021");
+		entradaTeatro.setDuracionEvento(155);
+		entradaTeatro.setGenero(genero2);
+		entradaTeatro.setActorPrincipal1("Liam Neeson");
+		entradaTeatro.setActorPrincipal2("Ricardo Francella");
+		entradaTeatro.setActorPrincipal3("-");
+		entradaTeatro.SetearPrecioEntrada(0);
+		listaEntradas.add(entradaTeatro);
+		
+		entradaTeatro = new EntradaTeatro();
+		genero2 = new Genero(3,2);
+		entradaTeatro.setNombreEvento("Casados con hijos");
+		entradaTeatro.setTipoEvento(tipoEvento2);
+		entradaTeatro.setFechaHoraEvento("14/07/2021");
+		entradaTeatro.setDuracionEvento(60);
+		entradaTeatro.setGenero(genero2);
+		entradaTeatro.setActorPrincipal1("Moni Argento");
+		entradaTeatro.setActorPrincipal2("Ricardo Francella");
+		entradaTeatro.setActorPrincipal3("-");
+		entradaTeatro.SetearPrecioEntrada(0);
+		listaEntradas.add(entradaTeatro);
+		
+		// ENTRADA INFANTIL
+		EntradaInfantil entradaInfantil = new EntradaInfantil();
+		TipoEvento tipoEvento3 = new TipoEvento(3);
+		
+		entradaInfantil.setNombreEvento("Pepa Pig world tour");
+		entradaInfantil.setTipoEvento(tipoEvento3);
+		entradaInfantil.setFechaHoraEvento("07/04/2021");
+		entradaInfantil.setDuracionEvento(15);
+		entradaInfantil.setTieneSouvenir(false);
+		entradaInfantil.SetearPrecioEntrada(1);
+		listaEntradas.add(entradaInfantil);
+		
+		//--------------------------------------------------
+		System.out.println("************************************************");
+		System.out.println("Todas las entradas");
 		for(Entrada obj : listaEntradas) {
+			System.out.println("************************************************");
 			System.out.println(obj.toString());
+			System.out.println("\n");
 		}
+		
+		System.out.println("************************************************");
+		tipoEvento2.listarReferencias(listaEntradas);
+		System.out.println("************************************************");
+		genBanda.listarReferencias(listaEntradas);
+
+		
 			
 
 	}

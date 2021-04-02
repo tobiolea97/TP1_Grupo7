@@ -1,6 +1,10 @@
 package dominio;
 
-public class EntradaInfantil extends Entrada{
+import java.util.ArrayList;
+
+import interfaces.ListarDatos;
+
+public class EntradaInfantil extends Entrada {
 	
 	private final static String CodigoEntrada = "I-";
 	private final double PrecioMenores8 = 250;
@@ -28,6 +32,11 @@ public class EntradaInfantil extends Entrada{
 		setNroEntrada(nroEntrada);
 	}
 	
+	public void setTieneSouvenir(boolean tieneSouvenir)
+	{
+		TieneSouvenir = tieneSouvenir;
+	}
+	
 	@Override
 	public void SetearPrecioEntrada(int tipoEntrada) {
 		if(tipoEntrada == 1) {
@@ -41,7 +50,7 @@ public class EntradaInfantil extends Entrada{
 		
 	@Override
 	public String toString() {
-		return super.toString()+ " TieneSouvenir=" + TieneSouvenir;
+		return super.toString()+ "\n TieneSouvenir=" + TieneSouvenir;
 	}
 
 
