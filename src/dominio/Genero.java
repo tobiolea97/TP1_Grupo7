@@ -28,7 +28,7 @@ public class Genero implements ListarDatos {
 					case 3: NombreGenero = "Reggaeton"; break;
 					case 4: NombreGenero = "Trap"; break;
 					case 5: NombreGenero = "Latinos"; break;
-					case 6: NombreGenero = "Latinos"; break;
+					case 6: NombreGenero = "Pop"; break;
 				}
 			break;
 			// Teatro
