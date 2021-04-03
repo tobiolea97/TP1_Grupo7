@@ -1,6 +1,7 @@
 package dominio;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 import interfaces.ListarDatos;
 
@@ -26,7 +27,7 @@ public class EntradaTeatro extends Entrada {
 	}
 	
 	public EntradaTeatro(String nombreEvento, TipoEvento tipo,
-			String fechaHora, int duracion, GeneroTeatro genero,
+			Date fechaHora, int duracion, GeneroTeatro genero,
 			Actor actor1, Actor actor2, Actor actor3) {
 		super(nombreEvento, tipo, fechaHora, duracion);
 		

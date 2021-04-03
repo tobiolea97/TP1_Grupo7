@@ -1,6 +1,7 @@
 package dominio;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 import interfaces.IEntradaNeg;
 import interfaces.ListarDatos;
@@ -23,7 +24,7 @@ public class EntradaInfantil extends Entrada implements IEntradaNeg {
 		setNroEntrada(nroEntrada);
 	}
 
-	public EntradaInfantil(String nombreEvento, TipoEvento tipoEvento, String fechaHoraEvento, int duracionEvento,boolean tieneSouvenir) {
+	public EntradaInfantil(String nombreEvento, TipoEvento tipoEvento, Date fechaHoraEvento, int duracionEvento,boolean tieneSouvenir, int tipo) {
 		super(nombreEvento, tipoEvento, fechaHoraEvento, duracionEvento);
 		
 		TieneSouvenir = tieneSouvenir;
@@ -31,6 +32,7 @@ public class EntradaInfantil extends Entrada implements IEntradaNeg {
 		setContEntradas(numEntrada);
 		String nroEntrada = CodigoEntrada + numEntrada;
 		setNroEntrada(nroEntrada);
+		SetearPrecioEntrada(tipo);
 	}
 	
 	public void setTieneSouvenir(boolean tieneSouvenir)

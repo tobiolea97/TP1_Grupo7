@@ -1,6 +1,7 @@
 package dominio;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Scanner;
 
 import interfaces.IEntradaNeg;
@@ -30,7 +31,7 @@ public class EntradaRecital extends Entrada implements IEntradaNeg {
 		
 	}
 
-	public EntradaRecital(String nombreEvento, TipoEvento tipoEvento, String fechaHoraEvento,
+	public EntradaRecital(String nombreEvento, TipoEvento tipoEvento, Date fechaHoraEvento,
 			int duracionEvento, Banda banda, GeneroRecital gen, Banda primeraBandaSoporte, Banda segundaBandaSoporte) {
 		
 		super(nombreEvento, tipoEvento, fechaHoraEvento, duracionEvento);

@@ -1,7 +1,7 @@
 package main;
 
 import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.Date;
 
 import dominio.Entrada;
 import dominio.EntradaInfantil;
@@ -10,8 +10,7 @@ import dominio.EntradaTeatro;
 import dominio.GeneroRecital;
 import dominio.GeneroTeatro;
 import dominio.TipoEvento;
-
-import dominio.MasterData;
+import dominio.Utils;
 import dominio.Actor;
 import dominio.Banda;
 
@@ -31,7 +30,7 @@ public class Principal {
 		
 		objReci.setBanda(new Banda(1));
 		objReci.setGenero(new GeneroRecital(1));
-		objReci.setFechaHoraEvento("11/12/2021");
+		objReci.setFechaHoraEvento(Utils.GetDate(11, 12, 2021, 20, 30));
 		objReci.setPrimeraBandaSoporte(new Banda(2));
 		objReci.setNombreEvento("RockNacional");
 		objReci.setTipoEvento(new TipoEvento(1));
@@ -43,7 +42,7 @@ public class Principal {
 		
 		objReci.setBanda(new Banda(3));
 		objReci.setGenero(new GeneroRecital(2));
-		objReci.setFechaHoraEvento("21/07/2022");
+		objReci.setFechaHoraEvento(Utils.GetDate(21, 07, 2022, 21, 00));
 		objReci.setPrimeraBandaSoporte(new Banda(4));
 		objReci.setSegundaBandaSoporte(new Banda(5));
 		objReci.setNombreEvento("CosquinRock");
@@ -57,18 +56,17 @@ public class Principal {
 		listaEntradas.add(new EntradaTeatro(
 				"Los arboles mueren de pie",
 				new TipoEvento(2),
-				"12/05/2021",
+				Utils.GetDate(12, 5, 2021, 19, 15),
 				120,
 				new GeneroTeatro(1),
 				new Actor(1),
 				new Actor(2),
 				null
 		));
-		
 		listaEntradas.add(new EntradaTeatro(
 				"Casados con hijos",
 				new TipoEvento(2),
-				"14/07/2021",
+				Utils.GetDate(7, 4, 2021, 20, 30),
 				60,
 				new GeneroTeatro(1),
 				new Actor(3),
@@ -76,18 +74,17 @@ public class Principal {
 				new Actor(5)	
 		));
 		
-		// ENTRADA INFANTIL
-		EntradaInfantil entradaInfantil = new EntradaInfantil();
+		// ENTRADAS INFANTIL
+		listaEntradas.add(new EntradaInfantil(
+			"Pepa Pig world tour",
+			new TipoEvento(3),
+			Utils.GetDate(26, 5, 2021, 20, 30),
+			15,
+			false,
+			1
+		));
 		
-		entradaInfantil.setNombreEvento("Pepa Pig world tour");
-		entradaInfantil.setTipoEvento(new TipoEvento(3));
-		entradaInfantil.setFechaHoraEvento("07/04/2021");
-		entradaInfantil.setDuracionEvento(15);
-		entradaInfantil.setTieneSouvenir(false);
-		entradaInfantil.SetearPrecioEntrada(1);
-		listaEntradas.add(entradaInfantil);
-		
-		//--------------------------------------------------
+		// SALIDA POR PANTALLA
 		System.out.println("************************************************");
 		System.out.println("Todas las entradas");
 		for(Entrada obj : listaEntradas) {
