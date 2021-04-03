@@ -1,6 +1,7 @@
 package dominio;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Scanner;
 
 import interfaces.IEntradaNeg;
@@ -13,10 +14,10 @@ public class EntradaRecital extends Entrada implements IEntradaNeg {
 	private final double PrecioVIP = 1500;
 	private final double PrecioGral = 800;
 	
-	private String Banda;
-	private Genero genero;
-	private String PrimeraBandaSoporte;
-	private String SegundaBandaSoporte;
+	private Banda Banda = new Banda(0, "-");
+	private GeneroRecital genero;
+	private Banda PrimeraBandaSoporte = new Banda(0, "-");;
+	private Banda SegundaBandaSoporte = new Banda(0, "-");;
 	
 	//CONSTRUCTORES
 	
@@ -30,8 +31,8 @@ public class EntradaRecital extends Entrada implements IEntradaNeg {
 		
 	}
 
-	public EntradaRecital(String nombreEvento, TipoEvento tipoEvento, String fechaHoraEvento,
-			int duracionEvento, String banda, Genero gen, String primeraBandaSoporte, String segundaBandaSoporte) {
+	public EntradaRecital(String nombreEvento, TipoEvento tipoEvento, Date fechaHoraEvento,
+			int duracionEvento, Banda banda, GeneroRecital gen, Banda primeraBandaSoporte, Banda segundaBandaSoporte) {
 		
 		super(nombreEvento, tipoEvento, fechaHoraEvento, duracionEvento);
 		
@@ -47,28 +48,28 @@ public class EntradaRecital extends Entrada implements IEntradaNeg {
 	}
 
 	//GETTERS AND SETTERS
-	public String getBanda() {
+	public Banda getBanda() {
 		return Banda;
 	}
-	public void setBanda(String banda) {
+	public void setBanda(Banda banda) {
 		Banda = banda;
 	}
-	public Genero getGenero() {
+	public GeneroRecital getGenero() {
 		return genero;
 	}
-	public void setGenero(Genero gen) {
+	public void setGenero(GeneroRecital gen) {
 		genero = gen;
 	}
-	public String getPrimeraBandaSoporte() {
+	public Banda getPrimeraBandaSoporte() {
 		return PrimeraBandaSoporte;
 	}
-	public void setPrimeraBandaSoporte(String primeraBandaSoporte) {
+	public void setPrimeraBandaSoporte(Banda primeraBandaSoporte) {
 		PrimeraBandaSoporte = primeraBandaSoporte;
 	}
-	public String getSegundaBandaSoporte() {
+	public Banda getSegundaBandaSoporte() {
 		return SegundaBandaSoporte;
 	}
-	public void setSegundaBandaSoporte(String segundaBandaSoporte) {
+	public void setSegundaBandaSoporte(Banda segundaBandaSoporte) {
 		SegundaBandaSoporte = segundaBandaSoporte;
 	}
 	
@@ -80,8 +81,9 @@ public class EntradaRecital extends Entrada implements IEntradaNeg {
 
 	@Override
 	public String toString() {
-		return super.toString() + " Banda:" + Banda + "\n Genero:" + genero.getNombreGenero() + "\n PrimeraBandaSoporte:" + PrimeraBandaSoporte
-				+ "\n SegundaBandaSoporte:" + SegundaBandaSoporte;
+		return super.toString() + "\n Banda: " + Banda.getNombre() + "\n Genero: " + genero.getDescripcion()
+			+ "\n PrimeraBandaSoporte: " + PrimeraBandaSoporte.getNombre()
+			+ "\n SegundaBandaSoporte: " + SegundaBandaSoporte.getNombre();
 	}
 
 	public void SetearPrecioEntrada(int tipoEntrada) {
@@ -109,7 +111,7 @@ public class EntradaRecital extends Entrada implements IEntradaNeg {
 			if(obj.getNroEntrada().contains(EntradaRecital.CodigoEntrada)) {
 				
 			
-				switch (objRecital.getGenero().getCodigoEvento()) {
+				switch (objRecital.getGenero().getId()) {
 				
 					case 1:
 						cantEntradasRock++;
