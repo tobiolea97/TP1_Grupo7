@@ -80,8 +80,8 @@ public abstract class  Entrada {
 	@Override
 	public String toString() {
 
-		return " NroEntrada:" + NroEntrada + "\n NombreEvento:" + NombreEvento + "\n TipoEvento:" + objTipoEvento.getDescripcion()
-				+ "\n FechaHoraEvento:" + FechaHoraEvento + "\n DuracionEvento:" + DuracionEvento + "mins \n Precio:" + String.format("%.2f", Precio);
+		return " NroEntrada: " + NroEntrada + "\n NombreEvento: " + NombreEvento + "\n TipoEvento: " + objTipoEvento.getDescripcion()
+				+ "\n FechaHoraEvento: " + FechaHoraEvento + "\n DuracionEvento: " + DuracionEvento + " mins \n Precio: " + String.format("%.2f", Precio);
 	}
 
 	public abstract void SetearPrecioEntrada(int tipoEntrada);

@@ -56,7 +56,7 @@ public class EntradaInfantil extends Entrada implements IEntradaNeg {
 		
 	@Override
 	public String toString() {
-		return super.toString()+ "\n TieneSouvenir=" + TieneSouvenir;
+		return super.toString()+ "\n TieneSouvenir: " + TieneSouvenir;
 	}
 
 	@Override
