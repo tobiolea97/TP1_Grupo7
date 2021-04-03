@@ -15,10 +15,6 @@ import dominio.Actor;
 import dominio.Banda;
 import dominio.Deporte;
 import dominio.EntradaDeporte;
-import dominio.Futbol;
-import dominio.Rugby;
-import dominio.Hockey;
-import dominio.ClasificacionDeporte;
 
 public class Principal {
 
@@ -74,7 +70,7 @@ public class Principal {
 				new TipoEvento(2),
 				Utils.GetDate(7, 4, 2021, 20, 30),
 				60,
-				new GeneroTeatro(1),
+				new GeneroTeatro(2),
 				new Actor(3),
 				new Actor(4),
 				new Actor(5)	
@@ -90,9 +86,22 @@ public class Principal {
 			1
 		));
 		
+		// ENTRADA DEPORTE
+		TipoEvento tE= new TipoEvento(4);
+		
+		EntradaDeporte eD= new EntradaDeporte("Evento Futbol",tE,Utils.GetDate(23, 9, 1992, 20, 30),160,new Deporte(1),true);
+		EntradaDeporte eD2= new EntradaDeporte("Evento Hockey",tE,Utils.GetDate(24, 9, 1992, 20, 30),160,new Deporte(3),true);
+		EntradaDeporte eD3= new EntradaDeporte("Evento Rugby",tE,Utils.GetDate(26, 9, 1992, 20, 30),160,new Deporte(2),false);
+		
+		listaEntradas.add(eD);
+		listaEntradas.add(eD2);
+		listaEntradas.add(eD3);		
+		
+		
 		// SALIDA POR PANTALLA
+		
 		System.out.println("************************************************");
-		System.out.println("Todas las entradas");
+		System.out.println("                Todas las entradas");
 		for(Entrada obj : listaEntradas) {
 			System.out.println("************************************************");
 			System.out.println(obj.toString());
@@ -100,31 +109,20 @@ public class Principal {
 		}
 		
 		System.out.println("************************************************");
+		System.out.println("                Interfaces");
+		System.out.println("************************************************");
 		tipoRecital.listarReferencias(listaEntradas);
 		generoDrama.listarReferencias(listaEntradas);
 		
-		System.out.println("************************************************");
-		System.out.println("Entradas de Deporte");
-		System.out.println("************************************************");
+		EntradaRecital entradaRecital = new EntradaRecital();
+		entradaRecital.MostrarCantidadEntrasVendidas(listaEntradas);
 		
-		ClasificacionDeporte cD= new ClasificacionDeporte("Internacional", 0.3);
-		ClasificacionDeporte cD2= new ClasificacionDeporte("Nacional", 0.3);
-		Deporte f1 =new Futbol();
-		Deporte r1= new Rugby();
-		Deporte h1= new Hockey();
-		
-		TipoEvento tE= new TipoEvento(1,"Deporte");
+		EntradaInfantil entradaInfantil = new EntradaInfantil();
+		entradaInfantil.MostrarCantidadEntrasVendidas(listaEntradas);
 		
 		
-	
+
 		
-		EntradaDeporte eD= new EntradaDeporte("Futbol",tE,Utils.GetDate(23, 9, 1992, 20, 30),160,f1,cD);
-		EntradaDeporte eD2= new EntradaDeporte("Rugby",tE,Utils.GetDate(24, 9, 1992, 20, 30),160,r1,cD);
-		EntradaDeporte eD3= new EntradaDeporte("Hockey",tE,Utils.GetDate(26, 9, 1992, 20, 30),160,h1,cD2);
-		
-		System.out.println(eD.toString());
-		System.out.println(eD2.toString());
-		System.out.println(eD3.toString());
 		
 
 	}

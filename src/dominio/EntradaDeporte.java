@@ -7,9 +7,10 @@ import interfaces.IEntradaNeg;
 
 public  class EntradaDeporte  extends Entrada {
 		Deporte D1;
-		ClasificacionDeporte cD= new ClasificacionDeporte();
 		private final static String CodigoEntrada = "D-";
 		double valorEntrada;
+		boolean Internacional = false;
+		
 		
 	public EntradaDeporte() {
 		int numEntrada  = getContEntradas() +1;
@@ -18,34 +19,22 @@ public  class EntradaDeporte  extends Entrada {
 		setNroEntrada(nroEntrada);}	
 	
 	
-	public EntradaDeporte(String nombreEvento, TipoEvento tipoEvento, Date fechaHoraEvento, int duracionEvento, Deporte d1, ClasificacionDeporte cD) {
+	public EntradaDeporte(String nombreEvento, TipoEvento tipoEvento, Date fechaHoraEvento, int duracionEvento, Deporte d1, boolean internacional) {
 		super(nombreEvento, tipoEvento, fechaHoraEvento, duracionEvento);
 		
 		
 		this.D1 = d1;
-		this.cD = cD;
-		this.valorEntrada=calcularValorEntrada();
-		SetearPrecioEntrada(1);
-		
+		//this.valorEntrada=calcularValorEntrada();
+		this.Internacional = internacional;
 		int numEntrada  = getContEntradas() +1;
 		setContEntradas(numEntrada);
 		String nroEntrada = CodigoEntrada + numEntrada;
 		setNroEntrada(nroEntrada);
+		SetearPrecioEntrada(0);
 	}
-		/*public EntradaDeporte(Deporte d1, ClasificacionDeporte cD) {
-		super();
-	
-		
-		
-		D1 = d1;
-		this.cD = cD;
-		this.valorEntrada=calcularValorEntrada();
-		SetearPrecioEntrada(1);
-		
-	}*/
 
 
-		public Deporte getD1() {
+	public Deporte getD1() {
 		return D1;
 	}
 
@@ -55,62 +44,15 @@ public  class EntradaDeporte  extends Entrada {
 		D1 = d1;
 	}
 
-
-
-	public ClasificacionDeporte getcD() {
-		return cD;
+	@Override
+	public void SetearPrecioEntrada(int valorEntrada) {
+		
+		setPrecio(this.Internacional ? this.getD1().getPrecio() * 1.3 : this.getD1().getPrecio());  
 	}
 
 
-
-	public void setcD(ClasificacionDeporte cD) {
-		this.cD = cD;
+	@Override
+	public String toString() {
+		return super.toString()+ "\n";
 	}
-
-
-
-		private double calcularValorEntrada() {
-			double valorEntrada=this.D1.obtenerValorFijo();
-		
-			 if(this.cD.getTipoClasificacion().equals("Internacional")) {
-				 
-				  valorEntrada*= this.cD.getInteres();
-				 return  this.D1.obtenerValorFijo()+valorEntrada;
-			}
-			
-			return valorEntrada;
-			
-			
-	}
-
-
-		
-
-		
-
-		@Override
-		public void SetearPrecioEntrada(int valorEntrada) {
-			setPrecio(this.valorEntrada);
-}
-
-
-		@Override
-		public String toString() {
-			return super.toString()+ "\n";
-		}
-
-
-	
-		
-		
-
-		
-
-
-
-
-
-	
-	
-
 }
