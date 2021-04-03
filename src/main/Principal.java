@@ -22,7 +22,7 @@ public class Principal {
 		EntradaRecital objReci = new EntradaRecital();
 		
 		objReci.setBanda("Mambru");
-		Genero genBanda = new Genero(1,1);
+		Genero genBanda = new Genero(3,1);
 		objReci.setGenero(genBanda);
 		objReci.setFechaHoraEvento("11/12/2021");
 		objReci.setPrimeraBandaSoporte("Bandana");
@@ -32,6 +32,21 @@ public class Principal {
 		objReci.setTipoEvento(tipoEvento);
 		objReci.setDuracionEvento(120);
 		objReci.SetearPrecioEntrada(1);
+		listaEntradas.add(objReci);
+		
+		objReci = new EntradaRecital();
+		
+		objReci.setBanda("Viejas Locas");
+		genBanda = new Genero(1,1);
+		objReci.setGenero(genBanda);
+		objReci.setFechaHoraEvento("21/07/2022");
+		objReci.setPrimeraBandaSoporte("Los Redondos");
+		objReci.setSegundaBandaSoporte("NTVG");
+		objReci.setNombreEvento("CosquinRock");
+		tipoEvento = new TipoEvento(1);
+		objReci.setTipoEvento(tipoEvento);
+		objReci.setDuracionEvento(174);
+		objReci.SetearPrecioEntrada(2);
 		listaEntradas.add(objReci);
 		
 		
@@ -88,7 +103,10 @@ public class Principal {
 		System.out.println("************************************************");
 		tipoEvento2.listarReferencias(listaEntradas);
 		System.out.println("************************************************");
-		genBanda.listarReferencias(listaEntradas);
+		Genero genRock = new Genero(1,1);
+		Genero genReggaeton = new Genero (3,1);
+		genRock.listarReferencias(listaEntradas);
+		genReggaeton.listarReferencias(listaEntradas);
 
 		
 			
