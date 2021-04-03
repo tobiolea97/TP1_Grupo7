@@ -13,6 +13,12 @@ import dominio.TipoEvento;
 import dominio.Utils;
 import dominio.Actor;
 import dominio.Banda;
+import dominio.Deporte;
+import dominio.EntradaDeporte;
+import dominio.Futbol;
+import dominio.Rugby;
+import dominio.Hockey;
+import dominio.ClasificacionDeporte;
 
 public class Principal {
 
@@ -97,6 +103,28 @@ public class Principal {
 		tipoRecital.listarReferencias(listaEntradas);
 		generoDrama.listarReferencias(listaEntradas);
 		
+		System.out.println("************************************************");
+		System.out.println("Entradas de Deporte");
+		System.out.println("************************************************");
+		
+		ClasificacionDeporte cD= new ClasificacionDeporte("Internacional", 0.3);
+		ClasificacionDeporte cD2= new ClasificacionDeporte("Nacional", 0.3);
+		Deporte f1 =new Futbol();
+		Deporte r1= new Rugby();
+		Deporte h1= new Hockey();
+		
+		TipoEvento tE= new TipoEvento(1,"Deporte");
+		
+		
+	
+		
+		EntradaDeporte eD= new EntradaDeporte("Futbol",tE,Utils.GetDate(23, 9, 1992, 20, 30),160,f1,cD);
+		EntradaDeporte eD2= new EntradaDeporte("Rugby",tE,Utils.GetDate(24, 9, 1992, 20, 30),160,r1,cD);
+		EntradaDeporte eD3= new EntradaDeporte("Hockey",tE,Utils.GetDate(26, 9, 1992, 20, 30),160,h1,cD2);
+		
+		System.out.println(eD.toString());
+		System.out.println(eD2.toString());
+		System.out.println(eD3.toString());
 		
 
 	}
