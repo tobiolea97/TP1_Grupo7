@@ -20,12 +20,8 @@ public class Principal {
 
 	public static void main(String[] args) {
 		
-		// DATOS MAESTROS
-		TipoEvento tipoRecital = new TipoEvento(1);
-		GeneroTeatro generoDrama = new GeneroTeatro(1);
-		
 		// DECLARACIONES
-		ArrayList<Entrada> listaEntradas = new ArrayList<Entrada>();		
+		ArrayList<Entrada> listaEntradas = new ArrayList<Entrada>();
 		
 		// ENTRADAS RECITALES
 		EntradaRecital objReci = new EntradaRecital();
@@ -85,13 +81,21 @@ public class Principal {
 			false,
 			1
 		));
+		listaEntradas.add(new EntradaInfantil(
+			"Pepa Pig world tour",
+			new TipoEvento(3),
+			Utils.GetDate(26, 5, 2021, 20, 30),
+			15,
+			false,
+			2
+		));
 		
 		// ENTRADA DEPORTE
 		TipoEvento tE= new TipoEvento(4);
 		
 		EntradaDeporte eD= new EntradaDeporte("Evento Futbol",tE,Utils.GetDate(23, 9, 1992, 20, 30),160,new Deporte(1),true);
-		EntradaDeporte eD2= new EntradaDeporte("Evento Hockey",tE,Utils.GetDate(24, 9, 1992, 20, 30),160,new Deporte(3),true);
-		EntradaDeporte eD3= new EntradaDeporte("Evento Rugby",tE,Utils.GetDate(26, 9, 1992, 20, 30),160,new Deporte(2),false);
+		EntradaDeporte eD2= new EntradaDeporte("Evento Hockey",tE,Utils.GetDate(24, 9, 1992, 20, 30),160,new Deporte(2),true);
+		EntradaDeporte eD3= new EntradaDeporte("Evento Rugby",tE,Utils.GetDate(26, 9, 1992, 20, 30),160,new Deporte(3),true);
 		
 		listaEntradas.add(eD);
 		listaEntradas.add(eD2);
@@ -111,6 +115,10 @@ public class Principal {
 		System.out.println("************************************************");
 		System.out.println("                Interfaces");
 		System.out.println("************************************************");
+		
+		TipoEvento tipoRecital = new TipoEvento(1);
+		GeneroTeatro generoDrama = new GeneroTeatro(1);
+		
 		tipoRecital.listarReferencias(listaEntradas);
 		generoDrama.listarReferencias(listaEntradas);
 		

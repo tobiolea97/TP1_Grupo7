@@ -7,9 +7,9 @@ public class Deporte {
 	int Id;
 	String nombreDeporte;
     double precio;
-    final double PrecioFutbol = 450;
-    final double PrecioHockey = 550;
-    final double PrecioRugby = 650;
+    final double PrecioFutbol = 300;
+    final double PrecioHockey = 380;
+    final double PrecioRugby = 450;
 	
 	public Deporte() {}
 	
