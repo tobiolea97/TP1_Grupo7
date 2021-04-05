@@ -1,99 +1,111 @@
 package main;
 
 import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.Date;
 
 import dominio.Entrada;
 import dominio.EntradaInfantil;
 import dominio.EntradaRecital;
 import dominio.EntradaTeatro;
-import dominio.Genero;
+import dominio.GeneroRecital;
+import dominio.GeneroTeatro;
 import dominio.TipoEvento;
+import dominio.Utils;
+import dominio.Actor;
+import dominio.Banda;
+import dominio.Deporte;
+import dominio.EntradaDeporte;
 
 public class Principal {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		
+		// DECLARACIONES
 		ArrayList<Entrada> listaEntradas = new ArrayList<Entrada>();
-		
 		
 		// ENTRADAS RECITALES
 		EntradaRecital objReci = new EntradaRecital();
 		
-		objReci.setBanda("Mambru");
-		Genero genBanda = new Genero(3,1);
-		objReci.setGenero(genBanda);
-		objReci.setFechaHoraEvento("11/12/2021");
-		objReci.setPrimeraBandaSoporte("Bandana");
-		objReci.setSegundaBandaSoporte("-");
+		objReci.setBanda(new Banda(1));
+		objReci.setGenero(new GeneroRecital(1));
+		objReci.setFechaHoraEvento(Utils.GetDate(11, 12, 2021, 20, 30));
+		objReci.setPrimeraBandaSoporte(new Banda(2));
 		objReci.setNombreEvento("RockNacional");
-		TipoEvento tipoEvento = new TipoEvento(1);
-		objReci.setTipoEvento(tipoEvento);
+		objReci.setTipoEvento(new TipoEvento(1));
 		objReci.setDuracionEvento(120);
 		objReci.SetearPrecioEntrada(1);
 		listaEntradas.add(objReci);
 		
 		objReci = new EntradaRecital();
 		
-		objReci.setBanda("Viejas Locas");
-		genBanda = new Genero(1,1);
-		objReci.setGenero(genBanda);
-		objReci.setFechaHoraEvento("21/07/2022");
-		objReci.setPrimeraBandaSoporte("Los Redondos");
-		objReci.setSegundaBandaSoporte("NTVG");
+		objReci.setBanda(new Banda(3));
+		objReci.setGenero(new GeneroRecital(2));
+		objReci.setFechaHoraEvento(Utils.GetDate(21, 07, 2022, 21, 00));
+		objReci.setPrimeraBandaSoporte(new Banda(4));
+		objReci.setSegundaBandaSoporte(new Banda(5));
 		objReci.setNombreEvento("CosquinRock");
-		tipoEvento = new TipoEvento(1);
-		objReci.setTipoEvento(tipoEvento);
+		objReci.setTipoEvento(new TipoEvento(1));
 		objReci.setDuracionEvento(174);
 		objReci.SetearPrecioEntrada(2);
 		listaEntradas.add(objReci);
 		
 		
-		// ENTRADAS TEATRO
-		EntradaTeatro entradaTeatro = new EntradaTeatro();
-		Genero genero2 = new Genero(1,2);
-		TipoEvento tipoEvento2 = new TipoEvento(2);
+		// ENTRADAS TEATRO				
+		listaEntradas.add(new EntradaTeatro(
+				"Los arboles mueren de pie",
+				new TipoEvento(2),
+				Utils.GetDate(12, 5, 2021, 19, 15),
+				120,
+				new GeneroTeatro(1),
+				new Actor(1),
+				new Actor(2),
+				null
+		));
+		listaEntradas.add(new EntradaTeatro(
+				"Casados con hijos",
+				new TipoEvento(2),
+				Utils.GetDate(7, 4, 2021, 20, 30),
+				60,
+				new GeneroTeatro(2),
+				new Actor(3),
+				new Actor(4),
+				new Actor(5)	
+		));
 		
-		entradaTeatro.setNombreEvento("Los arboles mueren de pie");
-		entradaTeatro.setTipoEvento(tipoEvento2);
-		entradaTeatro.setFechaHoraEvento("12/05/2021");
-		entradaTeatro.setDuracionEvento(155);
-		entradaTeatro.setGenero(genero2);
-		entradaTeatro.setActorPrincipal1("Liam Neeson");
-		entradaTeatro.setActorPrincipal2("Ricardo Francella");
-		entradaTeatro.setActorPrincipal3("-");
-		entradaTeatro.SetearPrecioEntrada(0);
-		listaEntradas.add(entradaTeatro);
+		// ENTRADAS INFANTIL
+		listaEntradas.add(new EntradaInfantil(
+			"Pepa Pig world tour",
+			new TipoEvento(3),
+			Utils.GetDate(26, 5, 2021, 20, 30),
+			15,
+			false,
+			1
+		));
+		listaEntradas.add(new EntradaInfantil(
+			"Pepa Pig world tour",
+			new TipoEvento(3),
+			Utils.GetDate(26, 5, 2021, 20, 30),
+			15,
+			false,
+			2
+		));
 		
-		entradaTeatro = new EntradaTeatro();
-		genero2 = new Genero(3,2);
-		entradaTeatro.setNombreEvento("Casados con hijos");
-		entradaTeatro.setTipoEvento(tipoEvento2);
-		entradaTeatro.setFechaHoraEvento("14/07/2021");
-		entradaTeatro.setDuracionEvento(60);
-		entradaTeatro.setGenero(genero2);
-		entradaTeatro.setActorPrincipal1("Moni Argento");
-		entradaTeatro.setActorPrincipal2("Ricardo Francella");
-		entradaTeatro.setActorPrincipal3("-");
-		entradaTeatro.SetearPrecioEntrada(0);
-		listaEntradas.add(entradaTeatro);
+		// ENTRADA DEPORTE
+		TipoEvento tE= new TipoEvento(4);
 		
-		// ENTRADA INFANTIL
-		EntradaInfantil entradaInfantil = new EntradaInfantil();
-		TipoEvento tipoEvento3 = new TipoEvento(3);
+		EntradaDeporte eD= new EntradaDeporte("Evento Futbol",tE,Utils.GetDate(23, 9, 1992, 20, 30),160,new Deporte(1),true);
+		EntradaDeporte eD2= new EntradaDeporte("Evento Hockey",tE,Utils.GetDate(24, 9, 1992, 20, 30),160,new Deporte(2),true);
+		EntradaDeporte eD3= new EntradaDeporte("Evento Rugby",tE,Utils.GetDate(26, 9, 1992, 20, 30),160,new Deporte(3),true);
 		
-		entradaInfantil.setNombreEvento("Pepa Pig world tour");
-		entradaInfantil.setTipoEvento(tipoEvento3);
-		entradaInfantil.setFechaHoraEvento("07/04/2021");
-		entradaInfantil.setDuracionEvento(15);
-		entradaInfantil.setTieneSouvenir(false);
-		entradaInfantil.SetearPrecioEntrada(1);
-		listaEntradas.add(entradaInfantil);
+		listaEntradas.add(eD);
+		listaEntradas.add(eD2);
+		listaEntradas.add(eD3);		
 		
-		//--------------------------------------------------
+		
+		// SALIDA POR PANTALLA
+		
 		System.out.println("************************************************");
-		System.out.println("Todas las entradas");
+		System.out.println("                Todas las entradas");
 		for(Entrada obj : listaEntradas) {
 			System.out.println("************************************************");
 			System.out.println(obj.toString());
@@ -101,15 +113,25 @@ public class Principal {
 		}
 		
 		System.out.println("************************************************");
-		tipoEvento2.listarReferencias(listaEntradas);
+		System.out.println("                Interfaces");
 		System.out.println("************************************************");
-		Genero genRock = new Genero(1,1);
-		Genero genReggaeton = new Genero (3,1);
-		genRock.listarReferencias(listaEntradas);
-		genReggaeton.listarReferencias(listaEntradas);
+		
+		TipoEvento tipoRecital = new TipoEvento(1);
+		GeneroTeatro generoDrama = new GeneroTeatro(1);
+		
+		tipoRecital.listarReferencias(listaEntradas);
+		generoDrama.listarReferencias(listaEntradas);
+		
+		EntradaRecital entradaRecital = new EntradaRecital();
+		entradaRecital.MostrarCantidadEntrasVendidas(listaEntradas);
+		
+		EntradaInfantil entradaInfantil = new EntradaInfantil();
+		entradaInfantil.MostrarCantidadEntrasVendidas(listaEntradas);
+		
+		
 
 		
-			
+		
 
 	}
 

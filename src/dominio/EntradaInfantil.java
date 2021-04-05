@@ -1,6 +1,7 @@
 package dominio;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 import interfaces.IEntradaNeg;
 import interfaces.ListarDatos;
@@ -23,7 +24,7 @@ public class EntradaInfantil extends Entrada implements IEntradaNeg {
 		setNroEntrada(nroEntrada);
 	}
 
-	public EntradaInfantil(String nombreEvento, TipoEvento tipoEvento, String fechaHoraEvento, int duracionEvento,boolean tieneSouvenir) {
+	public EntradaInfantil(String nombreEvento, TipoEvento tipoEvento, Date fechaHoraEvento, int duracionEvento,boolean tieneSouvenir, int tipo) {
 		super(nombreEvento, tipoEvento, fechaHoraEvento, duracionEvento);
 		
 		TieneSouvenir = tieneSouvenir;
@@ -31,6 +32,7 @@ public class EntradaInfantil extends Entrada implements IEntradaNeg {
 		setContEntradas(numEntrada);
 		String nroEntrada = CodigoEntrada + numEntrada;
 		setNroEntrada(nroEntrada);
+		SetearPrecioEntrada(tipo);
 	}
 	
 	public void setTieneSouvenir(boolean tieneSouvenir)
@@ -56,7 +58,7 @@ public class EntradaInfantil extends Entrada implements IEntradaNeg {
 		
 	@Override
 	public String toString() {
-		return super.toString()+ "\n TieneSouvenir=" + TieneSouvenir;
+		return super.toString()+ "\n TieneSouvenir: " + TieneSouvenir;
 	}
 
 	@Override
@@ -66,9 +68,9 @@ public class EntradaInfantil extends Entrada implements IEntradaNeg {
 
 		for(Entrada obj : lista) {
 			
-			EntradaInfantil objInfantil = (EntradaInfantil) obj;
-			
 			if(obj.getNroEntrada().contains(EntradaInfantil.CodigoEntrada)) {
+				
+				EntradaInfantil objInfantil = (EntradaInfantil) obj;
 				
 				if(objInfantil.getTieneSouvenir()) {
 					cantEntradasConSouvenir++;
@@ -82,10 +84,11 @@ public class EntradaInfantil extends Entrada implements IEntradaNeg {
 		
 		int totalEntradas = cantEntradasConSouvenir + cantEntradasSinSouvenir;
 		
-		System.out.println("\n\n");
-		System.out.println("La cantidad de entradas Vendidas son:\n");
-		System.out.println("Sourvenir: " + cantEntradasConSouvenir + "\n");
-		System.out.println("Sin Souvenir: " + cantEntradasSinSouvenir + "\n");
+		System.out.println("************************************************");
+		System.out.println("La cantidad de entradas para un evento infantil Vendidas son:");
+		System.out.println("************************************************");
+		System.out.println("Sourvenir: " + cantEntradasConSouvenir);
+		System.out.println("Sin Souvenir: " + cantEntradasSinSouvenir);
 		System.out.println("Total Entradas: " + totalEntradas);
 	}
 		

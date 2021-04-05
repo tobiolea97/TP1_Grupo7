@@ -1,6 +1,7 @@
 package dominio;
 
 import java.text.DecimalFormat;
+import java.util.Date;
 import java.util.Scanner;
 
 
@@ -12,7 +13,7 @@ public abstract class  Entrada {
 	private String NroEntrada;
 	private String NombreEvento;
 	private TipoEvento objTipoEvento;
-	private String FechaHoraEvento;
+	private Date FechaHoraEvento;
 	private int DuracionEvento;
 	private double Precio;
 	
@@ -23,7 +24,7 @@ public abstract class  Entrada {
 		
 	}
 	
-	public Entrada(String nombreEvento, TipoEvento tipoEvento, String fechaHoraEvento,
+	public Entrada(String nombreEvento, TipoEvento tipoEvento, Date fechaHoraEvento,
 			int duracionEvento) {
 		NombreEvento = nombreEvento;
 		objTipoEvento = tipoEvento;
@@ -58,10 +59,10 @@ public abstract class  Entrada {
 	public void setTipoEvento(TipoEvento tipoEvento) {
 		objTipoEvento = tipoEvento;
 	}
-	public String getFechaHoraEvento() {
+	public Date getFechaHoraEvento() {
 		return FechaHoraEvento;
 	}
-	public void setFechaHoraEvento(String fechaHoraEvento) {
+	public void setFechaHoraEvento(Date fechaHoraEvento) {
 		FechaHoraEvento = fechaHoraEvento;
 	}
 	public int getDuracionEvento() {
@@ -80,8 +81,8 @@ public abstract class  Entrada {
 	@Override
 	public String toString() {
 
-		return " NroEntrada:" + NroEntrada + "\n NombreEvento:" + NombreEvento + "\n TipoEvento:" + objTipoEvento.getDescripcion()
-				+ "\n FechaHoraEvento:" + FechaHoraEvento + "\n DuracionEvento:" + DuracionEvento + "mins \n Precio:" + String.format("%.2f", Precio);
+		return " NroEntrada: " + NroEntrada + "\n NombreEvento: " + NombreEvento + "\n TipoEvento: " + objTipoEvento.getDescripcion()
+				+ "\n FechaHoraEvento: " + FechaHoraEvento + "\n DuracionEvento: " + DuracionEvento + " mins \n Precio: " + String.format("%.2f", Precio);
 	}
 
 	public abstract void SetearPrecioEntrada(int tipoEntrada);

@@ -12,21 +12,19 @@ public class TipoEvento implements ListarDatos{
 		public TipoEvento () {
 			
 		}
+		public TipoEvento (int CodigoTipoEvento,String Descripcion) {
+			this.CodigoTipoEvento=CodigoTipoEvento;
+			this.Descripcion=Descripcion;
+		}
 		
-		public TipoEvento(int codigoTipoEvento) {
-			CodigoTipoEvento = codigoTipoEvento;
-			
-			if(codigoTipoEvento == 1) {
-				Descripcion = "Recital";
-			}
-			else if(codigoTipoEvento == 2) {
-				Descripcion = "Teatro";
-			}
-			else if(codigoTipoEvento == 3) {
-				Descripcion = "Infantil";
-			}
-			else {
-				Descripcion = "Deportes";
+		public TipoEvento(int id) {
+			ArrayList<TipoEvento> tipos = MasterData.GetTiposDeEvento();
+			for(TipoEvento obj : tipos) {
+				if(obj.getCodigoTipoEvento() == id)
+				{
+					this.CodigoTipoEvento = id;
+					this.Descripcion = obj.getDescripcion();
+				}
 			}
 		}
 
