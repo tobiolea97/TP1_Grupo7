@@ -20,6 +20,8 @@ public class Principal {
 
 	public static void main(String[] args) {
 		
+		
+		//PRUEBA GIT
 		// DECLARACIONES
 		ArrayList<Entrada> listaEntradas = new ArrayList<Entrada>();
 		
