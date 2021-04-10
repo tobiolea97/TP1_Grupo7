@@ -13,17 +13,15 @@ import dominio.TipoEvento;
 import dominio.Utils;
 import dominio.Actor;
 import dominio.Banda;
+import dominio.Deporte;
+import dominio.EntradaDeporte;
 
 public class Principal {
 
 	public static void main(String[] args) {
 		
-		// DATOS MAESTROS
-		TipoEvento tipoRecital = new TipoEvento(1);
-		GeneroTeatro generoDrama = new GeneroTeatro(1);
-		
 		// DECLARACIONES
-		ArrayList<Entrada> listaEntradas = new ArrayList<Entrada>();		
+		ArrayList<Entrada> listaEntradas = new ArrayList<Entrada>();
 		
 		// ENTRADAS RECITALES
 		EntradaRecital objReci = new EntradaRecital();
@@ -68,7 +66,7 @@ public class Principal {
 				new TipoEvento(2),
 				Utils.GetDate(7, 4, 2021, 20, 30),
 				60,
-				new GeneroTeatro(1),
+				new GeneroTeatro(2),
 				new Actor(3),
 				new Actor(4),
 				new Actor(5)	
@@ -83,10 +81,31 @@ public class Principal {
 			false,
 			1
 		));
+		listaEntradas.add(new EntradaInfantil(
+			"Pepa Pig world tour",
+			new TipoEvento(3),
+			Utils.GetDate(26, 5, 2021, 20, 30),
+			15,
+			false,
+			2
+		));
+		
+		// ENTRADA DEPORTE
+		TipoEvento tE= new TipoEvento(4);
+		
+		EntradaDeporte eD= new EntradaDeporte("Evento Futbol",tE,Utils.GetDate(23, 9, 1992, 20, 30),160,new Deporte(1),true);
+		EntradaDeporte eD2= new EntradaDeporte("Evento Hockey",tE,Utils.GetDate(24, 9, 1992, 20, 30),160,new Deporte(2),true);
+		EntradaDeporte eD3= new EntradaDeporte("Evento Rugby",tE,Utils.GetDate(26, 9, 1992, 20, 30),160,new Deporte(3),true);
+		
+		listaEntradas.add(eD);
+		listaEntradas.add(eD2);
+		listaEntradas.add(eD3);		
+		
 		
 		// SALIDA POR PANTALLA
+		
 		System.out.println("************************************************");
-		System.out.println("Todas las entradas");
+		System.out.println("                Todas las entradas");
 		for(Entrada obj : listaEntradas) {
 			System.out.println("************************************************");
 			System.out.println(obj.toString());
@@ -94,8 +113,23 @@ public class Principal {
 		}
 		
 		System.out.println("************************************************");
+		System.out.println("                Interfaces");
+		System.out.println("************************************************");
+		
+		TipoEvento tipoRecital = new TipoEvento(1);
+		GeneroTeatro generoDrama = new GeneroTeatro(1);
+		
 		tipoRecital.listarReferencias(listaEntradas);
 		generoDrama.listarReferencias(listaEntradas);
+		
+		EntradaRecital entradaRecital = new EntradaRecital();
+		entradaRecital.MostrarCantidadEntrasVendidas(listaEntradas);
+		
+		EntradaInfantil entradaInfantil = new EntradaInfantil();
+		entradaInfantil.MostrarCantidadEntrasVendidas(listaEntradas);
+		
+		
+
 		
 		
 

@@ -12,6 +12,7 @@ public class Utils {
 		date.setYear(anio-1900);
 		date.setHours(hora);
 		date.setMinutes(minutos);
+		date.setSeconds(0);
 		
 		return date;
 	}

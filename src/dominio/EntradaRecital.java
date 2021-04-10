@@ -107,9 +107,10 @@ public class EntradaRecital extends Entrada implements IEntradaNeg {
 
 		for(Entrada obj : lista) {
 			
-			EntradaRecital objRecital = (EntradaRecital) obj;
+			
 			if(obj.getNroEntrada().contains(EntradaRecital.CodigoEntrada)) {
 				
+				EntradaRecital objRecital = (EntradaRecital) obj;
 			
 				switch (objRecital.getGenero().getId()) {
 				
@@ -135,19 +136,20 @@ public class EntradaRecital extends Entrada implements IEntradaNeg {
 				}								
 
 			}
-			
-			int totalEntradas = cantEntradasRock + cantEntradasHM + cantEntradasReggaeton + cantEntradasTrap + cantEntradasLat + cantEntradasPop;
-			
-			System.out.println("\n\n");
-			System.out.println("La cantidad de entradas Vendidas por genero de recital son:\n");
-			System.out.println("Rock: " + cantEntradasRock + "\n");
-			System.out.println("Rock: " + cantEntradasHM + "\n");
-			System.out.println("Rock: " + cantEntradasReggaeton + "\n");
-			System.out.println("Rock: " + cantEntradasTrap + "\n");
-			System.out.println("Rock: " + cantEntradasLat + "\n");
-			System.out.println("Rock: " + cantEntradasPop + "\n");
-			System.out.println("Total Entradas: " + totalEntradas);
 		}
+		
+		int totalEntradas = cantEntradasRock + cantEntradasHM + cantEntradasReggaeton + cantEntradasTrap + cantEntradasLat + cantEntradasPop;
+		
+		System.out.println("************************************************");
+		System.out.println("La cantidad de entradas Vendidas por genero de recital son:");
+		System.out.println("************************************************");
+		System.out.println("Rock: " + cantEntradasRock);
+		System.out.println("Heavy Metal: " + cantEntradasHM);
+		System.out.println("Reggateon: " + cantEntradasReggaeton);
+		System.out.println("Trap: " + cantEntradasTrap);
+		System.out.println("Latino: " + cantEntradasLat);
+		System.out.println("Pop: " + cantEntradasPop);
+		System.out.println("Total Entradas: " + totalEntradas);
 		
 		
 	}

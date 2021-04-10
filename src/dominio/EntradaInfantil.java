@@ -68,9 +68,9 @@ public class EntradaInfantil extends Entrada implements IEntradaNeg {
 
 		for(Entrada obj : lista) {
 			
-			EntradaInfantil objInfantil = (EntradaInfantil) obj;
-			
 			if(obj.getNroEntrada().contains(EntradaInfantil.CodigoEntrada)) {
+				
+				EntradaInfantil objInfantil = (EntradaInfantil) obj;
 				
 				if(objInfantil.getTieneSouvenir()) {
 					cantEntradasConSouvenir++;
@@ -84,10 +84,11 @@ public class EntradaInfantil extends Entrada implements IEntradaNeg {
 		
 		int totalEntradas = cantEntradasConSouvenir + cantEntradasSinSouvenir;
 		
-		System.out.println("\n\n");
-		System.out.println("La cantidad de entradas Vendidas son:\n");
-		System.out.println("Sourvenir: " + cantEntradasConSouvenir + "\n");
-		System.out.println("Sin Souvenir: " + cantEntradasSinSouvenir + "\n");
+		System.out.println("************************************************");
+		System.out.println("La cantidad de entradas para un evento infantil Vendidas son:");
+		System.out.println("************************************************");
+		System.out.println("Sourvenir: " + cantEntradasConSouvenir);
+		System.out.println("Sin Souvenir: " + cantEntradasSinSouvenir);
 		System.out.println("Total Entradas: " + totalEntradas);
 	}
 		

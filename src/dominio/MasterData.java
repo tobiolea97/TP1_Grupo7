@@ -1,6 +1,7 @@
 package dominio;
 
 import java.util.ArrayList;
+import dominio.Deporte;
 
 public class MasterData {
 	
